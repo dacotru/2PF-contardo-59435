@@ -7,7 +7,7 @@ import { AlumnoService } from '../../../core/services/alumnos.service';
 @Component({
   selector: 'app-alumnos',
   templateUrl: './alumnos.component.html',
-  styleUrl: './alumnos.component.scss',
+  styleUrls: ['./alumnos.component.scss']
 })
 
 export class AlumnosComponent implements OnInit {
