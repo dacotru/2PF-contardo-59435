@@ -2,7 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Curso } from '../models';
-import { generateRandomString } from '../../../../shared/utils/'; // Ajusta la ruta según sea necesario
+import { generateRandomString } from '../../../../shared/utils/';
 
 @Component({
   selector: 'app-cursos-dialog',
@@ -19,7 +19,7 @@ export class CursosDialogComponent {
   ) {
     this.cursoForm = this.fb.group({
       nombre: [data ? data.nombre : '', Validators.required],
-      modalidad: [data ? data.modalidad : '', Validators.required], // Cambiado a select
+      modalidad: [data ? data.modalidad : '', Validators.required],
       profesor: [data ? data.profesor : '', Validators.required],
     });
   }
@@ -28,10 +28,9 @@ export class CursosDialogComponent {
     if (this.cursoForm.valid) {
       const nuevoCurso: Curso = {
         ...this.cursoForm.value,
-        id: this.data ? this.data.id : generateRandomString(8) // Generar ID único solo si es un nuevo curso
+        id: this.data ? this.data.id : generateRandomString(8) 
       };
-      console.log("Cerrando diálogo con curso:", nuevoCurso); // Para depuración
-      this.dialogRef.close(nuevoCurso); // Cerrar el diálogo y pasar el nuevo curso
+      this.dialogRef.close(nuevoCurso);
     }
   }
   

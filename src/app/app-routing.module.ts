@@ -18,8 +18,8 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/dashboard', // Redirigir a dashboard
-    pathMatch: 'full', // Asegúrate de que la coincidencia sea exacta
+    redirectTo: '/dashboard',
+    pathMatch: 'full',
   },
   {
     path: '**',

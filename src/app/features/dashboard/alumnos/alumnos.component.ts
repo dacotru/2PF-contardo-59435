@@ -12,9 +12,9 @@ import { AlumnoService } from '../../../core/services/alumnos.service';
 
 export class AlumnosComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'email', 'createdAt', 'actions'];
-  dataSource: Alumno[] = [];  // Lista de alumnos
+  dataSource: Alumno[] = [];
 
-  isLoading = false;  // Indicador de carga
+  isLoading = false;
 
   constructor(
     private matDialog: MatDialog,
@@ -22,7 +22,7 @@ export class AlumnosComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.loadUsers();  // Cargar los alumnos al iniciar el componente
+    this.loadUsers();
   }
 
   loadUsers(): void {
@@ -42,30 +42,28 @@ export class AlumnosComponent implements OnInit {
 
   openModal(alumno?: Alumno): void {
     const dialogRef = this.matDialog.open(AlumnosDialogComponent, {
-      data: { editingUser: alumno },  // Se pasa el alumno completo, incluyendo la fecha de creación
+      data: { editingUser: alumno },
     });
   
     dialogRef.afterClosed().subscribe({
       next: (result) => {
         if (result) {
           if (alumno) {
-            // Editar alumno
             const index = this.dataSource.findIndex(a => a.id === alumno.id);
             if (index > -1) {
               this.dataSource[index] = result;
             }
           } else {
-            // Crear nuevo alumno
             this.dataSource.push(result);
           }
   
-          this.dataSource = [...this.dataSource];  // Forzar la detección de cambios
+          this.dataSource = [...this.dataSource];
         }
       },
     });
   }
   
-  // Función para eliminar un alumno por su ID
+  
   onDelete(id: string): void {
     if (confirm('¿Estás seguro que quieres eliminar este alumno?')) {
       this.isLoading = true;

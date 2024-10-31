@@ -9,7 +9,5 @@ import { MatDrawer } from '@angular/material/sidenav';
 export class DashboardComponent implements AfterViewInit {
   @ViewChild(MatDrawer) drawer!: MatDrawer; 
 
-  ngAfterViewInit() {
-    // Aquí puedes hacer algo con la referencia del drawer, si es necesario
-  }
+  ngAfterViewInit() {}
 }

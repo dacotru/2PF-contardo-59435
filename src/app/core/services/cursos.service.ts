@@ -5,7 +5,7 @@ import { generateRandomString } from '../../shared/utils';
 
 let CURSOSBASE: Curso[] = [
   {
-    id: '63c9',  // Ejemplo de ID único
+    id: '63c9',
     nombre: 'Curso de Angular',
     modalidad: 'Online',
     profesor: 'Profesor A',
@@ -28,12 +28,9 @@ export class CursosService {
   }
 
   addCurso(newCurso: Curso): Observable<Curso | null> {
-    console.log("Llamando a addCurso con el curso:", newCurso); // Para depuración
+
+    newCurso.id = generateRandomString(4);
     
-    // Generar un ID único
-    newCurso.id = generateRandomString(4); // Asegúrate de usar la longitud que necesites
-    
-    // Verifica si el curso ya existe por nombre, modalidad y dictada por
     const existingCurso = CURSOSBASE.find(curso => 
       curso.nombre === newCurso.nombre && 
       curso.modalidad === newCurso.modalidad && 
@@ -42,12 +39,11 @@ export class CursosService {
     
     if (existingCurso) {
       console.log("El curso ya existe:", existingCurso);
-      return of(null); // Retorna null si el curso ya existe
+      return of(null); 
     }
     
-    CURSOSBASE.push({ ...newCurso }); // Agregar una copia del nuevo curso
-    console.log("Curso agregado:", newCurso);
-    return of({ ...newCurso }); // Devuelve una copia del curso recién agregado
+    CURSOSBASE.push({ ...newCurso });
+    return of({ ...newCurso });
   }
   
   

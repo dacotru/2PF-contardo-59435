@@ -7,5 +7,5 @@ import { MatDrawer } from '@angular/material/sidenav';
   styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent {
-  @Input() drawer!: MatDrawer; // Recibe la referencia del MatDrawer
+  @Input() drawer!: MatDrawer;
 }
