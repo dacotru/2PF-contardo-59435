@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
-import { MatSidenavModule } from '@angular/material/sidenav';  // Para <mat-drawer-container>
-import { MatButtonModule } from '@angular/material/button';      // Para botones
-import { MatToolbarModule } from '@angular/material/toolbar';    // Para el toolbar
+import { MatSidenavModule } from '@angular/material/sidenav'; 
+import { MatButtonModule } from '@angular/material/button';     
+import { MatToolbarModule } from '@angular/material/toolbar'; 
 import { AlumnosModule } from './alumnos/alumnos.module';
 import { SharedModule } from '../../shared/shared.module';
 import { CursosModule } from './cursos/cursos.module'; 
